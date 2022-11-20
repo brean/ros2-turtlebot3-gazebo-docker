@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  humble_sim:
+    image: humble_ignition
+    tty: True
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+      args:
+        ROS_DISTRO: humble
+        IGNITION_VERSION: fortress
+        TURTLEBOT3_MODEL: burger
+    environment: 
+      - DISPLAY # for camera inside gazebo
+      - NVIDIA_VISIBLE_DEVICES=all # for docker-nvidia2
+      - NVIDIA_DRIVER_CAPABILITIES=all # for docker-nvidia2
+      - TURTLEBOT3_MODEL=burger
+    user: "1000:1000"
+    working_dir: "/home/ros/"
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro  # for camera inside gazebo
+      - ./entrypoint.sh:/ros2_ws_entrypoint.sh:z
+    privileged: True
