@@ -43,7 +43,7 @@ RUN apt-get update &&\
 # We don't need sound
 RUN echo "pcm.!default = null;" > /etc/asound.conf
 
-COPY ./${SIM}/entrypoint.sh /ros2_ws_entrypoint.sh
+COPY ./entrypoint.sh /ros2_ws_entrypoint.sh
 RUN chmod a+x /ros2_ws_entrypoint.sh
 ENTRYPOINT [ "/ros2_ws_entrypoint.sh" ]
 
