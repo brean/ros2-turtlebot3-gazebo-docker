@@ -3,4 +3,4 @@ Minimalistic [ROS 2 humble](https://docs.ros.org/en/humble/index.html) simulatio
 
 based on https://github.com/ahcorde/turtlebot3_simulations/tree/ahcorde/ignition_support
 
-Build using `docker-compose build` and then start using `docker-compose run humble_sim`
+Build using `docker-compose build` and then start calling `./run.bash` (to run the docker container inside an xhost environment)
