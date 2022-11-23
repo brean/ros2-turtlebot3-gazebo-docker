@@ -1,3 +1,0 @@
-[submodule "turtlebot3_simulations"]
-	path = turtlebot3_simulations
-	url = git@github.com:brean/turtlebot3_simulations.git

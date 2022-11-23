@@ -1,23 +1,28 @@
 version: '3'
 
 services:
-  humble_sim:
-    image: humble_ignition
+  turtlebot-gazebo:
+    # run the robot ros core as well as a headless gazebo simulation
+    image: brean/ros-turtlebot3-gazebo:foxy
     tty: True
+    container_name: ros-foxy
     build:
       context: ./
       dockerfile: ./Dockerfile
       args:
-        ROS_DISTRO: humble
-        IGNITION_VERSION: fortress
-        TURTLEBOT3_MODEL: burger
+        ROS_DISTRO: foxy
     environment: 
-      - DISPLAY # for camera inside gazebo
+      - DISPLAY
+      - "ROS_DISTRO=foxy"
       - NVIDIA_VISIBLE_DEVICES=all # for docker-nvidia2
       - NVIDIA_DRIVER_CAPABILITIES=all # for docker-nvidia2
-      - TURTLEBOT3_MODEL=burger
-    user: "1000:1000"
-    working_dir: "/home/ros/"
+    privileged: true  # for gazebo gui
     volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix:ro  # for camera inside gazebo
-    privileged: True
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro  # for gazebo gui
+    networks:
+      - turtlebot
+    command: ["ros2", "launch", "turtlebot3_gazebo", "turtlebot3_world.launch.py"]
+
+networks:
+  turtlebot:
+    name: turtlebot
