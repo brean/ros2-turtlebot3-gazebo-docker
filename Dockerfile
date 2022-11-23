@@ -73,4 +73,5 @@ RUN cd ${COLCON_WS}/ \
 #  cd ${COLCON_WS}/ && \
 #  colcon build
 
-#CMD TURTLEBOT3_MODEL=burger ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+CMD gz sim
+#ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
