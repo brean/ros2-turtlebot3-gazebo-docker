@@ -9,7 +9,7 @@ services:
       dockerfile: ./Dockerfile
       args:
         ROS_DISTRO: humble
-        IGNITION_VERSION: fortress
+        # GAZEBO_VERSION: garden
         TURTLEBOT3_MODEL: burger
     environment: 
       - DISPLAY # for camera inside gazebo
