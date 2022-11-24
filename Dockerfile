@@ -28,6 +28,7 @@ RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pk
 
 
 # install turtlebot description and navigation packages
+# libignition should become libgazebo in the future?!
 RUN apt-get update &&\
   apt-get install \
     ros-${ROS_DISTRO}-ros2launch \
@@ -46,6 +47,8 @@ RUN apt-get update &&\
     ros-${ROS_DISTRO}-joint-trajectory-controller \
     ros-${ROS_DISTRO}-rviz2 \
     ros-${ROS_DISTRO}-tricycle-controller \
+    libignition-msgs8-dev \
+    libignition-transport11-dev \
     -y && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
@@ -63,15 +66,18 @@ RUN mkdir -p ${COLCON_WS}/log \
 USER ros
 WORKDIR /home/${USER}/
 
-COPY ./turtlebot3_simulations ${COLCON_WS}/turtlebot3_simulations
 RUN cd ${COLCON_WS}/ \
-    && git clone https://github.com/ros-controls/gz_ros2_control.git -b master
-#    && rosdep update \
-#    && rosdep install --from-paths ./ -i -y --rosdistro ${ROS_DISTRO}
+    && git clone https://github.com/ros-controls/gz_ros2_control.git -b ${ROS_DISTRO} \
+    && git clone https://github.com/gazebosim/ros_gz.git -b ${ROS_DISTRO}
+    # && git clone https://github.com/gazebosim/gz-transport.git -b gz-transport12
+    # && rosdep update \
+    # && rosdep install --from-paths ./ -i -y --rosdistro ${ROS_DISTRO}
 
-#RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
-#  cd ${COLCON_WS}/ && \
-#  colcon build
+# COPY ./turtlebot3_simulations ${COLCON_WS}/turtlebot3_simulations
+
+RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
+  cd ${COLCON_WS}/ && \
+  colcon build
 
 CMD gz sim
 #ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py

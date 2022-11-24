@@ -20,4 +20,7 @@ services:
     working_dir: "/home/ros/"
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:ro  # for camera inside gazebo
+      - /dev/dri/renderD129:/dev/dri/renderD129:ro
     privileged: True
+
+# TODO: https://github.com/ros-controls/gz_ros2_control/pull/67
