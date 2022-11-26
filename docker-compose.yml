@@ -2,7 +2,7 @@ version: '3'
 
 services:
   humble_sim:
-    image: humble_ignition
+    image: humble_garden
     tty: True
     build:
       context: ./

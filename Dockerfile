@@ -69,14 +69,19 @@ RUN cd ${COLCON_WS}/ \
     && git clone https://github.com/ros-controls/gz_ros2_control.git -b ahcorde/rename/ign_to_gz \
     && git clone https://github.com/gazebosim/ros_gz.git -b ros2 \
     && git clone https://github.com/gazebosim/gz-transport.git -b gz-transport12
+    # && git clone https://github.com/gazebosim/gz-math.git -b gz-math7
     # && rosdep update \
     # && rosdep install --from-paths ./ -i -y --rosdistro ${ROS_DISTRO}
 
-# COPY ./turtlebot3_simulations ${COLCON_WS}/turtlebot3_simulations
-
+# get some coffee - building the packages takes around 20 minutes
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
   cd ${COLCON_WS}/ && \
   colcon build
 
-CMD gz sim
-#ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+COPY ./turtlebot3_simulations ${COLCON_WS}/turtlebot3_simulations
+RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
+  cd ${COLCON_WS}/ && \
+  colcon build
+
+# CMD gz sim
+CMD ros2 launch turtlebot3_gz gz_sim.launch.py
