@@ -28,7 +28,6 @@ RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pk
 
 
 # install turtlebot description and navigation packages
-# libignition should become libgazebo in the future?!
 RUN apt-get update &&\
   apt-get install \
     ros-${ROS_DISTRO}-ros2launch \
@@ -48,8 +47,6 @@ RUN apt-get update &&\
     ros-${ROS_DISTRO}-rviz2 \
     ros-${ROS_DISTRO}-tricycle-controller \
     ros-${ROS_DISTRO}-gps-msgs \
-    libignition-msgs8-dev \
-    libignition-transport11-dev \
     -y && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
@@ -71,7 +68,7 @@ WORKDIR /home/${USER}/
 RUN cd ${COLCON_WS}/ \
     && git clone https://github.com/ros-controls/gz_ros2_control.git -b ahcorde/rename/ign_to_gz \
     && git clone https://github.com/gazebosim/ros_gz.git -b ros2
-    # && git clone https://github.com/gazebosim/gz-transport.git -b gz-transport12
+    && git clone https://github.com/gazebosim/gz-transport.git -b gz-transport12
     # && rosdep update \
     # && rosdep install --from-paths ./ -i -y --rosdistro ${ROS_DISTRO}
 
