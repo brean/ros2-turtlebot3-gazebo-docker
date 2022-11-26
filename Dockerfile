@@ -67,7 +67,7 @@ WORKDIR /home/${USER}/
 # this uses the latest fork from https://github.com/ros-controls/gz_ros2_control/pull/67
 RUN cd ${COLCON_WS}/ \
     && git clone https://github.com/ros-controls/gz_ros2_control.git -b ahcorde/rename/ign_to_gz \
-    && git clone https://github.com/gazebosim/ros_gz.git -b ros2
+    && git clone https://github.com/gazebosim/ros_gz.git -b ros2 \
     && git clone https://github.com/gazebosim/gz-transport.git -b gz-transport12
     # && rosdep update \
     # && rosdep install --from-paths ./ -i -y --rosdistro ${ROS_DISTRO}
