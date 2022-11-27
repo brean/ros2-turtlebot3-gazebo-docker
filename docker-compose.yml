@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  humble_sim:
+  humble_garden:
     image: humble_garden
     tty: True
     build:
@@ -9,8 +9,6 @@ services:
       dockerfile: ./Dockerfile
       args:
         ROS_DISTRO: humble
-        # GAZEBO_VERSION: garden
-        TURTLEBOT3_MODEL: burger
     environment: 
       - DISPLAY # for camera inside gazebo
       - NVIDIA_VISIBLE_DEVICES=all # for docker-nvidia2

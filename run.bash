@@ -1,4 +1,4 @@
 #!/bin/bash
 xhost +local:root
-docker-compose run humble_sim $@
+docker-compose run humble_garden $@
 xhost -local:root

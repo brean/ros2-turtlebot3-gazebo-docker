@@ -8,6 +8,8 @@ based on the [feature-ign_gazebo](https://github.com/ROBOTIS-GIT/turtlebot3_simu
 ## Installation and running
 Build using `docker-compose build` and then start calling `./run.bash` (to run the docker container inside an xhost environment).
 
+If you want to rebuild the original base-image (e.g. because you have changes in the turtlebot3_simulation folder) run the `build_base_image.bash`-script.
+
 Because we are using some special branches after the renaming of gazebo from iginition back to gazebo some stuff might break in the future!
 
 ---
