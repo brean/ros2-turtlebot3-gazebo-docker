@@ -52,7 +52,7 @@ def generate_launch_description():
             [
                 FindPackageShare('turtlebot3_navigation2'),
                 'map',
-                'turtlebot3_world.yaml'
+                'map.yaml'
             ]
         )
     )
