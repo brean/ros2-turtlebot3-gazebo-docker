@@ -7,7 +7,7 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 
-install(DIRECTORY launch
+install(DIRECTORY launch param
   DESTINATION share/${PROJECT_NAME}
 )
 install(TARGETS

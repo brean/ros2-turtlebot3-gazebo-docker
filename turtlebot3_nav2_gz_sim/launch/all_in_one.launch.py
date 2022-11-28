@@ -61,9 +61,9 @@ def generate_launch_description():
         'params_file',
         default=PathJoinSubstitution(
             [
-                FindPackageShare('turtlebot3_navigation2'),
+                FindPackageShare('turtlebot3_nav2_gz_sim'),
                 'param',
-                os.environ['TURTLEBOT3_MODEL'] + '.yaml'
+                'nav2.yaml'
             ]
         )
     )
@@ -149,5 +149,5 @@ def generate_launch_description():
         
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
-                [turtlebot3_gz_launch_file_dir, '/gz_sim.launch.py']))
+                [turtlebot3_gz_launch_file_dir, '/gz_sim.launch.py'])),
     ])
