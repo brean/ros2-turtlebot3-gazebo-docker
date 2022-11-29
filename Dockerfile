@@ -8,7 +8,7 @@ ARG COLCON_WS=/home/${USER}/ws
 # cartographer and navigation2 are already installed in the base-image.
 # this might change in the future and we maybe want to install them here?!
 
-COPY ./turtlebot3_nav2_gz_sim ${COLCON_WS}/src/
+COPY ./turtlebot3_nav2_gz_sim ${COLCON_WS}/src/turtlebot3_nav2_gz_sim
 # ros2 launch nav2_bringup bringup_launch.py use_sim_time:=False autostart:=False map:=/path/to/your-map.yaml
 
 RUN . ${COLCON_WS}/install/setup.sh && \
