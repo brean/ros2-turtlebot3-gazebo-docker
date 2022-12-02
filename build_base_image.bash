@@ -3,4 +3,4 @@ docker build \
   -t brean/turtlebot3_gz_sim:garden  \
   -f Dockerfile_base \
   .
-docker push brean/turtlebot3_gz_sim:garden
+# docker push brean/turtlebot3_gz_sim:garden
