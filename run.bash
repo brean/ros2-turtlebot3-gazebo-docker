@@ -1,4 +1,5 @@
 #!/bin/bash
-xhost +local:root
-docker-compose run turtlebot-gazebo ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+terminator -l turtlebot -g terminator.conf
 xhost -local:root
+cd remote-pc/ && docker-compose down
+cd simulated_turtlebot && docker-compose down

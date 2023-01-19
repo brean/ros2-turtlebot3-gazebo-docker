@@ -1,16 +1,22 @@
 # ROS 2 foxy Gazebo Simulation in docker
-**Note that you don't need to run the build script, the image is pushed to dockerhub, just run `docker-compose pull`!**
 
-Run gazebo classic simulation with turtlebot in a local docker container so you can run it if you don't have Ubuntu 20.04 installed.
+## Motivation
+Run gazebo classic simulation with Turtlebot 3 in a local docker container for testing.
 
-Take a look at  [ros-turtlebot3-navigation-docker](../../../ros-turtlebot3-navigation-docker) to interact with the robot.
+## Installation
+1. Install docker. Make sure you have the right version for your graphic-card installed (e.g. [docker-nvidia2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker) for NVIDIA graphics cards)!
+1. Install `terminator` using your systems package manager (e.g. `sudo apt install terminator`).
 
-Don't forget to configure ROS_DOMAIN_ID (default 30) and TURTLEBOT3_MODEL (default burger)
+## General Usage
+After you installed docker and terminator you can directly call the `./run.bash`-script, it starts the robot in the basic Turtlebot environment as well as everything that is needed for autonomous navigation and rviz2.
 
-to run the docker-container for the simulation just run the `./run.bash`-script
 
-Note that the start of gazebo can take a few seconds. Make sure you have your graphic-card specifics installed (e.g. docker-nvidia2 for NVIDIA graphics cards)!
+## Development
+**Note that you don't need to run the build script, the image is pushed to docker hub, just run `docker-compose pull`!**
 
-after gazebo started that you can connect to the "turtlebot"-network inside docker and execute any ros2 command.
+If you want to rebuild the docker-container and do not want to use the provided container from docker hub you can force a rebuild it by running `./build.bash` in the subfolder.
 
-Don't forget to run `docker-compose down` when you are done.
+### Custom ros2-commands from the host system
+If you like to access the robot from outside the docker network don't forget to configure ROS_DOMAIN_ID (default 30) and TURTLEBOT3_MODEL (default burger). You can also change this for the simulation in the docker-compose file.
+
+When you close the terminator-window `docker-compose down` will be executed in the `remote-pc` and `simulated_turtlebot` subfolders to stop all remaining docker instances. Note that this might also stop other docker container you are running!

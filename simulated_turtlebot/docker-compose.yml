@@ -5,7 +5,8 @@ services:
     # run the robot ros core as well as a headless gazebo simulation
     image: brean/ros-turtlebot3-gazebo:foxy
     tty: True
-    container_name: ros-foxy
+    container_name: ros-foxy-turtlebot3
+    network_mode: host
     build:
       context: ./
       dockerfile: ./Dockerfile
@@ -19,10 +20,5 @@ services:
     privileged: true  # for gazebo gui
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:ro  # for gazebo gui
-    networks:
-      - turtlebot
-    command: ["ros2", "launch", "turtlebot3_gazebo", "turtlebot3_world.launch.py"]
 
-networks:
-  turtlebot:
-    name: turtlebot
+    command: ["ros2", "launch", "turtlebot3_gazebo", "turtlebot3_world.launch.py"]

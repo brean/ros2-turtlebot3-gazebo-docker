@@ -1,0 +1,3 @@
+[submodule "ros-turtlebot3-navigation-docker"]
+	path = ros-turtlebot3-navigation-docker
+	url = git@github.com:brean/ros-turtlebot3-navigation-docker.git
