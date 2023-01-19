@@ -19,4 +19,4 @@ If you want to rebuild the docker-container and do not want to use the provided 
 ### Custom ros2-commands from the host system
 If you like to access the robot from outside the docker network don't forget to configure ROS_DOMAIN_ID (default 30) and TURTLEBOT3_MODEL (default burger). You can also change this for the simulation in the docker-compose file.
 
-When you close the terminator-window `docker-compose down` will be executed in the `remote-pc` and `simulated_turtlebot` subfolders to stop all remaining docker instances. Note that this might also stop other docker container you are running!
+When you close the terminator-window `docker-compose down` will be executed in the `remote_pc` and `simulated_turtlebot` subfolders to stop all remaining docker instances. Note that this might also stop other docker container you are running!
