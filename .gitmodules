@@ -1,3 +1,3 @@
-[submodule "ros-turtlebot3-navigation-docker"]
+[submodule "ros2-turtlebot3-remote-pc-docker"]
 	path = remote_pc
-	url = git@github.com:brean/ros-turtlebot3-navigation-docker.git
+	url = git@github.com:brean/ros2-turtlebot3-remote-pc-docker.git

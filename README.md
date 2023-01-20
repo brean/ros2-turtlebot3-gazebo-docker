@@ -1,6 +1,8 @@
 # ROS 2 foxy Gazebo Simulation in docker
 Run gazebo classic simulation with Turtlebot 3 with ROS 2 foxy in a local docker container.
 
+![](doc/gazebo_classic_and_rviz2.gif)
+
 ## Motivation
 Simple simulation for testing purposes. 
 
