@@ -1,5 +1,5 @@
-# ROS 2 foxy Gazebo Simulation in docker
-Run gazebo classic simulation with Turtlebot 3 with ROS 2 foxy in a local docker container.
+# ROS 2 humble Gazebo Simulation in docker
+Run gazebo classic simulation with Turtlebot 3 with ROS 2 humble in a local docker container.
 
 ![](doc/gazebo_classic_and_rviz2.gif)
 

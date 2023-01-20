@@ -3,21 +3,22 @@ version: '3'
 services:
   turtlebot-gazebo:
     # run the robot ros core as well as a headless gazebo simulation
-    image: brean/ros2-turtlebot3-gazebo:foxy
+    image: brean/ros2-turtlebot3-gazebo:humble
     tty: True
-    container_name: ros2-turtlebot3-gazebo-foxy
+    container_name: ros2-turtlebot3-gazebo-humble
     networks:
     - turtlebot
     build:
       context: ./
       dockerfile: ./Dockerfile
       args:
-        ROS_DISTRO: foxy
+        ROS_DISTRO: humble
     environment: 
       - DISPLAY
-      - "ROS_DISTRO=foxy"
+      - "ROS_DISTRO=humble"
       - NVIDIA_VISIBLE_DEVICES=all # for docker-nvidia2
       - NVIDIA_DRIVER_CAPABILITIES=all # for docker-nvidia2
+      - GAZEBO_MODEL_PATH=/opt/ros/humble/share/turtlebot3_gazebo/models/
     privileged: true  # for gazebo gui
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:ro  # for gazebo gui
