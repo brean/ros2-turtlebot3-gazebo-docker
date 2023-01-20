@@ -1,9 +1,7 @@
 #!/bin/bash
 set -e
 
-# setup gazebo environment
-source /usr/share/gazebo/setup.sh
-
-# setup ros2 environment
+# setup gazebo and ros environment
+source "/usr/share/gazebo/setup.sh" --
 source "/opt/ros/$ROS_DISTRO/setup.bash" --
 exec "$@"
