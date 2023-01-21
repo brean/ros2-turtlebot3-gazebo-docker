@@ -11,6 +11,10 @@ RUN apt-get update \
 ARG ROS_DOMAIN_ID=30
 ARG TURTLEBOT3_MODEL=burger
 
+COPY ./entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+
 # burger, waffle, waffle_pi
 ENV TURTLEBOT3_MODEL ${TURTLEBOT3_MODEL}
 
