@@ -8,6 +8,11 @@ RUN apt-get update \
     ros-${ROS_DISTRO}-turtlebot3-simulations \
   && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update \
+  && apt-get -y install \
+    ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
+  && rm -rf /var/lib/apt/lists/*
+
 ARG ROS_DOMAIN_ID=30
 ARG TURTLEBOT3_MODEL=burger
 

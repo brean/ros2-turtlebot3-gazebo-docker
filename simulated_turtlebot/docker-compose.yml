@@ -19,6 +19,7 @@ services:
       - NVIDIA_VISIBLE_DEVICES=all # for docker-nvidia2
       - NVIDIA_DRIVER_CAPABILITIES=all # for docker-nvidia2
       - GAZEBO_MODEL_PATH=/opt/ros/humble/share/turtlebot3_gazebo/models/
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     privileged: true  # for gazebo gui
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:ro  # for gazebo gui
