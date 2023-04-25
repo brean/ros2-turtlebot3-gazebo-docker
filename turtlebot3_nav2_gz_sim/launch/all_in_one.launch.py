@@ -146,7 +146,7 @@ def generate_launch_description():
                 'use_respawn': use_respawn,
             }.items(),
         ),
-        
+
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
                 [turtlebot3_gz_launch_file_dir, '/gz_sim.launch.py'])),

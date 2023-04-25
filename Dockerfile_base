@@ -66,7 +66,7 @@ WORKDIR /home/${USER}/
 
 # this uses the latest fork from https://github.com/ros-controls/gz_ros2_control/pull/67
 RUN cd ${COLCON_WS}/ \
-    && git clone https://github.com/ros-controls/gz_ros2_control.git -b ahcorde/rename/ign_to_gz \
+    && git clone https://github.com/ros-controls/gz_ros2_control.git -b master \
     && git clone https://github.com/gazebosim/ros_gz.git -b ros2 \
     && git clone https://github.com/gazebosim/gz-transport.git -b gz-transport12
     # && git clone https://github.com/gazebosim/gz-math.git -b gz-math7

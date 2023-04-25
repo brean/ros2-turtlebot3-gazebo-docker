@@ -9,16 +9,24 @@ services:
       dockerfile: ./Dockerfile
       args:
         ROS_DISTRO: humble
-    environment: 
-      - DISPLAY # for camera inside gazebo
+    environment:
+      - "PYTHONUNBUFFERED=1"
+      - DISPLAY
+      - "QT_X11_NO_MITSHM=1"
       - NVIDIA_VISIBLE_DEVICES=all # for docker-nvidia2
       - NVIDIA_DRIVER_CAPABILITIES=all # for docker-nvidia2
       - TURTLEBOT3_MODEL=burger
-    user: "1000:1000"
+      - XDG_RUNTIME_DIR 
+      - __NV_PRIME_RENDER_OFFLOAD
+      - __GLX_VENDOR_LIBRARY_NAME
     working_dir: "/home/ros/"
     volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix:ro  # for camera inside gazebo
-      - /dev/dri/renderD129:/dev/dri/renderD129:ro
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+      - /run/user:/run/user:ro
+      - /dev/dri/renderD128:/dev/dri/renderD128:z
     privileged: True
 
-# TODO: https://github.com/ros-controls/gz_ros2_control/pull/67
+networks:
+  default:
+    external:
+      name: turtlebot
