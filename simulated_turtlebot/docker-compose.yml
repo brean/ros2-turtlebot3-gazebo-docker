@@ -3,9 +3,9 @@ version: '3'
 services:
   turtlebot-gazebo:
     # run the robot ros core as well as a headless gazebo simulation
-    image: brean/ros2-turtlebot3-gazebo:foxy
+    image: brean/ros2-turtlebot3:foxy-classic
     tty: True
-    container_name: ros2-turtlebot3-gazebo-foxy
+    container_name: ros2-turtlebot3-foxy-classic
     networks:
     - turtlebot
     build:
