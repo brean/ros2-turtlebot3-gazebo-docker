@@ -22,9 +22,8 @@ services:
     working_dir: "/home/ros/"
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
-      - /run/user:/run/user:ro
-      - /dev/dri/renderD128:/dev/dri/renderD128:z
     privileged: True
+    network_mode: host
 
 networks:
   default:
