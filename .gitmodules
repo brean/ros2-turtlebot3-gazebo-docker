@@ -1,3 +1,6 @@
 [submodule "turtlebot3_simulations"]
-	path = turtlebot3_simulations
+	path = simulated_turtlebot/turtlebot3_simulations
 	url = git@github.com:brean/turtlebot3_simulations.git
+[submodule "remote_pc"]
+	path = remote_pc
+	url = git@github.com:brean/ros2-turtlebot3-remote-pc-docker.git

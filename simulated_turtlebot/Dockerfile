@@ -1,4 +1,4 @@
-FROM brean/turtlebot3_gz_sim:garden
+FROM brean/ros2-turtlebot3:humble-garden
 
 ARG USER=ros
 
