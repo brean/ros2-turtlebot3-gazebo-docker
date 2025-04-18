@@ -1,7 +1,5 @@
-# ROS 2 foxy Gazebo Simulation in docker
-Run gazebo classic simulation with Turtlebot 3 with ROS 2 foxy in a local docker container.
-
-![](doc/gazebo_classic_and_rviz2.gif)
+# ROS 2 jazzy Gazebo Simulation in docker
+Run gazebo classic simulation with Turtlebot 3 with ROS 2 jazzy in a local docker container.
 
 ## Motivation
 Simple simulation for testing purposes. 
@@ -44,6 +42,6 @@ Please use the [issue tracker](https://github.com/brean/ros2-turtlebot3-gazebo-d
 
 This code is distributed under the [3-clause BSD license](https://opensource.org/licenses/BSD-3-Clause).
 
-## Maintainer / Authors / Contributers
+## Maintainer / Authors / Contributors
 
 Andreas Bresser, andreas.bresser@dfki.de

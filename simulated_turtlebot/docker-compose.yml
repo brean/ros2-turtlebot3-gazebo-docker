@@ -3,19 +3,19 @@ version: '3'
 services:
   turtlebot-gazebo:
     # run the robot ros core as well as a headless gazebo simulation
-    image: brean/ros2-turtlebot3:foxy-classic
+    image: brean/ros2-turtlebot3:jazzy
     tty: True
-    container_name: ros2-turtlebot3-foxy-classic
+    container_name: ros2-turtlebot3-jazzy
     networks:
     - turtlebot
     build:
       context: ./
       dockerfile: ./Dockerfile
       args:
-        ROS_DISTRO: foxy
+        ROS_DISTRO: jazzy
     environment: 
       - DISPLAY
-      - "ROS_DISTRO=foxy"
+      - "ROS_DISTRO=jazzy"
       - NVIDIA_VISIBLE_DEVICES=all # for docker-nvidia2
       - NVIDIA_DRIVER_CAPABILITIES=all # for docker-nvidia2
     privileged: true  # for gazebo gui
